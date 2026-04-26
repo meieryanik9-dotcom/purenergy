@@ -653,7 +653,6 @@
     backdrop-filter: blur(4px);
     align-items: center; justify-content: center;
   }
-  .modal-overlay.open { display: flex; }
   .modal-box {
     background: var(--white);
     border-radius: 8px;
@@ -738,15 +737,15 @@
 </head>
 <body>
 <script>
-  function openModal() {
-    document.getElementById('contactModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal() {
-    document.getElementById('contactModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.addEventListener('keydown', function(e) { if(e.key === 'Escape') closeModal(); });
+  window.openModal = function() {
+    var m = document.getElementById('contactModal');
+    if(m) { m.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+  };
+  window.closeModal = function() {
+    var m = document.getElementById('contactModal');
+    if(m) { m.style.display = 'none'; document.body.style.overflow = ''; }
+  };
+  document.addEventListener('keydown', function(e) { if(e.key === 'Escape') window.closeModal(); });
 </script>
 
 <!-- NAV -->
@@ -841,7 +840,6 @@
         Dysbiosen, Leaky Gut, Nahrungsmittelunverträglichkeiten und chronische Entzündungen
         mit modernen Mikrobiomlaboren und individuellen Therapieplänen.
       </p>
-      <div class="card-link">Mehr erfahren <span>→</span></div>
     </a>
 
     <a class="leistung-card" href="#ortho">
@@ -861,7 +859,6 @@
         Genetische Diagnostik und HPU-Abklärung zeigen, was Ihrem Körper wirklich fehlt –
         und wie wir gezielt gegensteuern.
       </p>
-      <div class="card-link">Mehr erfahren <span>→</span></div>
     </a>
 
     <a class="leistung-card" href="#akupunktur">
@@ -881,7 +878,6 @@
         und der hochwirksamen Methode nach Master Tung – bei Schmerzen, funktionellen
         Störungen, Stress und vielem mehr.
       </p>
-      <div class="card-link">Mehr erfahren <span>→</span></div>
     </a>
 
     <a class="leistung-card" href="#mikroimm">
@@ -897,7 +893,6 @@
         (megemit). Besonders wirkungsvoll bei chronischen Erkrankungen,
         Autoimmunprozessen und nach Infektionen.
       </p>
-      <div class="card-link">Mehr erfahren <span>→</span></div>
     </a>
 
   </div>
@@ -997,7 +992,7 @@
   </p>
   <div class="cta-buttons">
     <a href="/cdn-cgi/l/email-protection#96e6e4f7eeffe5d6e6e3e4f3f8f3e4f1efb8f2f3" class="btn-cta">Jetzt Kontakt aufnehmen</a>
-    <button onclick="openModal()" class="btn-cta-outline" style="cursor:pointer;">Anrufen</button>
+    
   </div>
 </section>
 
