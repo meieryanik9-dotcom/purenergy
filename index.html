@@ -736,17 +736,7 @@
 </style>
 </head>
 <body>
-<script>
-  window.openModal = function() {
-    var m = document.getElementById('contactModal');
-    if(m) { m.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
-  };
-  window.closeModal = function() {
-    var m = document.getElementById('contactModal');
-    if(m) { m.style.display = 'none'; document.body.style.overflow = ''; }
-  };
-  document.addEventListener('keydown', function(e) { if(e.key === 'Escape') window.closeModal(); });
-</script>
+
 
 <!-- NAV -->
 <nav>
@@ -759,7 +749,7 @@
     <li><a href="#philosophie">Mein Ansatz</a></li>
   </ul>
   <div class="nav-cta-wrap">
-    <a href="#kontakt" onclick="setTimeout(function(){document.getElementById('contactModal').style.display='flex';document.body.style.overflow='hidden'},300)" class="nav-cta" style="text-decoration:none;font-size:0.78rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;background:var(--brand-blue);color:var(--white);padding:0.55rem 1.4rem;border-radius:3px;transition:background 0.25s;">Termin anfragen</a>
+    <a href="#kontakt" class="open-modal nav-cta" style="text-decoration:none;font-size:0.78rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;background:var(--brand-blue);color:var(--white);padding:0.55rem 1.4rem;border-radius:3px;transition:background 0.25s;" open-modal">Termin anfragen</a>
   </div>
 </nav>
 
@@ -778,7 +768,7 @@
       für eine Medizin, die wirklich zu Ihnen passt.
     </p>
     <div class="hero-actions">
-      <button onclick="document.getElementById('contactModal').style.display='flex';document.body.style.overflow='hidden'" class="btn-primary" style="cursor:pointer;">Erstgespräch anfragen</button>
+      <button class="open-modal btn-primary" style="cursor:pointer;">Erstgespräch anfragen</button>
       <a href="#leistungen" class="btn-secondary">Leistungen entdecken →</a>
     </div>
   </div>
@@ -1007,3 +997,69 @@
     <li><a href="#">Barrierefreiheit</a></li>
   </ul>
   <div class="footer-copy">© 2025 PURENERGY · Dr. E
+</div>
+</footer>
+
+<!-- CONTACT MODAL -->
+<div id="contactModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;background:rgba(20,30,50,0.55);align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:8px;padding:2.8rem 3rem;max-width:480px;width:90%;position:relative;box-shadow:0 16px 64px rgba(0,0,0,0.2);">
+    <button id="modalClose" style="position:absolute;top:1rem;right:1.2rem;background:none;border:none;cursor:pointer;font-size:1.5rem;color:#5a5f52;">✕</button>
+    <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1.8rem;">
+      <div style="width:10px;height:10px;background:#7eb83a;border-radius:50%;"></div>
+      <span style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#5a5f52;font-weight:500;">PURENERGY · Privatpraxis</span>
+    </div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:#1e2118;margin-bottom:1.6rem;">Dr. <em style="font-style:italic;color:#2a52b8;">Elke Meier</em></h3>
+
+    <div style="margin-bottom:0.8rem;">
+      <div style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:#567f26;font-weight:500;margin-bottom:0.3rem;">Standort</div>
+      <div style="font-size:0.93rem;color:#1e2118;line-height:1.6;font-weight:300;">Spessartstraße 50<br>63755 Alzenau-Michelbach</div>
+    </div>
+    <hr style="border:none;border-top:1px solid #e6e8e0;margin:0.7rem 0;">
+    <div style="margin-bottom:0.8rem;">
+      <div style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:#567f26;font-weight:500;margin-bottom:0.3rem;">Öffnungszeiten</div>
+      <div style="font-size:0.93rem;color:#1e2118;line-height:1.6;font-weight:300;">Donnerstag &amp; Freitag</div>
+    </div>
+    <hr style="border:none;border-top:1px solid #e6e8e0;margin:0.7rem 0;">
+    <div style="margin-bottom:0.8rem;">
+      <div style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:#567f26;font-weight:500;margin-bottom:0.3rem;">E-Mail</div>
+      <div style="font-size:0.93rem;font-weight:300;"><a href="mailto:emeieryinyang@gmail.com" style="color:#2a52b8;text-decoration:none;">emeieryinyang@gmail.com</a></div>
+    </div>
+    <hr style="border:none;border-top:1px solid #e6e8e0;margin:0.7rem 0;">
+    <div style="margin-bottom:1.5rem;">
+      <div style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:#567f26;font-weight:500;margin-bottom:0.3rem;">Telefon</div>
+      <div style="font-size:0.93rem;font-weight:300;"><a href="tel:+4960239439668" style="color:#2a52b8;text-decoration:none;">06023 9439668</a></div>
+    </div>
+    <div style="display:flex;gap:0.8rem;">
+      <a href="tel:+4960239439668" style="flex:1;background:#2a52b8;color:#fff;padding:0.85rem 1rem;border-radius:4px;font-family:'Jost',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;text-align:center;">📞 Anrufen</a>
+      <a href="mailto:emeieryinyang@gmail.com" style="flex:1;background:transparent;color:#2a52b8;padding:0.85rem 1rem;border:1px solid rgba(42,82,184,0.3);border-radius:4px;font-family:'Jost',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;text-align:center;">✉ E-Mail</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var modal = document.getElementById('contactModal');
+  var closeBtn = document.getElementById('modalClose');
+
+  function openModal(e) {
+    if (e) e.preventDefault();
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+  document.querySelectorAll('.open-modal').forEach(function(el) {
+    el.addEventListener('click', openModal);
+  });
+})();
+</script>
+
+</body>
+</html>
