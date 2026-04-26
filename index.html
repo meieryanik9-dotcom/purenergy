@@ -759,7 +759,7 @@
     <li><a href="#philosophie">Mein Ansatz</a></li>
   </ul>
   <div class="nav-cta-wrap">
-    <a href="#kontakt" onclick="setTimeout(openModal,300)" class="nav-cta" style="text-decoration:none;font-size:0.78rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;background:var(--brand-blue);color:var(--white);padding:0.55rem 1.4rem;border-radius:3px;transition:background 0.25s;">Termin anfragen</a>
+    <a href="#kontakt" onclick="setTimeout(function(){document.getElementById('contactModal').style.display='flex';document.body.style.overflow='hidden'},300)" class="nav-cta" style="text-decoration:none;font-size:0.78rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;background:var(--brand-blue);color:var(--white);padding:0.55rem 1.4rem;border-radius:3px;transition:background 0.25s;">Termin anfragen</a>
   </div>
 </nav>
 
@@ -778,7 +778,7 @@
       für eine Medizin, die wirklich zu Ihnen passt.
     </p>
     <div class="hero-actions">
-      <button onclick="openModal()" class="btn-primary" style="cursor:pointer;">Erstgespräch anfragen</button>
+      <button onclick="document.getElementById('contactModal').style.display='flex';document.body.style.overflow='hidden'" class="btn-primary" style="cursor:pointer;">Erstgespräch anfragen</button>
       <a href="#leistungen" class="btn-secondary">Leistungen entdecken →</a>
     </div>
   </div>
